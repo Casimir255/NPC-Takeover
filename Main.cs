@@ -347,6 +347,8 @@ namespace NPC_PCU_Fixer2
 
                                 DeleteList.Add(TGrid);
 
+                                Debug("Ship was added to delete watcher");
+
                             }
 
                             //Log.Info(NewPlayer.DisplayName);
@@ -360,7 +362,7 @@ namespace NPC_PCU_Fixer2
 
                             //Cubegrid.TransferBlocksBuiltByID(PirateEntityID, PlayerWhoCapturedNPC);
                             //MyCubeGridGroups.Static.UpdateDynamicState(Cubegrid);
-
+                            Debug("Removed grid from watchlist");
                             TrackedGrids.Remove(grid);
                             return;
 
