@@ -28,7 +28,7 @@ namespace NPC_PCU_Fixer2
         
         private int _BlockThreshold = 3;
         public int BlockThreshold { get => _BlockThreshold; set => SetValue(ref _BlockThreshold, value); }
-
+         
         /*
          * Something to keep tracked of impending deleted grids if server restarts?
         private List<Tracker> _DeleteList;
