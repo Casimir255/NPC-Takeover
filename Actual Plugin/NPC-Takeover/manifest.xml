@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<PluginManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Name>NPC-Takeover</Name>
-  <Guid>F0E4B548-8D3B-46B2-94F1-B2791E8A9052</Guid>
-  <Repository>NPCFixer</Repository>
-  <Version>v.0.0.1</Version>
-</PluginManifest>
