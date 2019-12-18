@@ -1,0 +1,116 @@
+﻿<UserControl x:Class="NPC_PCU_Fixer2.UI.UserControlInterface"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NPC_PCU_Fixer2.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="1550" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="0" Grid.Row ="0" VerticalAlignment="Center" Text="NPC Takeover Plugin" FontWeight="Bold" FontSize="16" Margin="5"/>
+        
+
+        <ScrollViewer Grid.Column="0" Grid.Row ="1" VerticalScrollBarVisibility="Auto">
+
+            <Grid Name="Commands" ScrollViewer.CanContentScroll="True">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" SharedSizeGroup="Labels"/>
+                    <ColumnDefinition Width="180" SharedSizeGroup="Labels"/>
+                    
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="100"/>
+                </Grid.RowDefinitions>
+
+
+                
+                <TextBlock Grid.Column="0" Grid.Row ="0" Text="Description:" Margin="5" Grid.ColumnSpan="1" FontWeight="Bold"/>
+                <TextBlock Grid.Column="0" Grid.ColumnSpan="3" Grid.Row ="1" Grid.RowSpan="3" Margin="5">
+                        This plugin fixes one of my most hated issues with SE and servers
+                    <LineBreak/><LineBreak/>
+                    As a server Admin I often find players capture npc grids and take block ownership of the entire grid yet authorship doesnt get transfered too.
+                    <LineBreak/>
+                    So with our ingame server PCU limits players can abuse npc grids and capture hundreds of grids without actually takin authorship of the grid.
+                     <LineBreak/>
+                    <LineBreak/>
+                    
+                    This plugin checks all controlblocks (default) on a pirateship-nobody/owned grid to make sure when a player grinds or takes owner, the authorship transfers too.<LineBreak/>
+
+                    If a player is over their PCU limit, this plugin gives warning to the player saying the grid will be deleted on log out/Server restart. <LineBreak/> This will continusouly check if a player transfers it to another player or grinds existing PCU so can keep it within their limits
+                    <LineBreak/>
+                    Right now this plugin doesnt keep track of grids if a server restarts. (Looses memory) However this is a planned feature.
+
+                </TextBlock>
+                <TextBlock Grid.Column="0" Grid.Row ="2" Text="Configs:" Margin="5" Grid.ColumnSpan="1" FontWeight="Bold"/>
+                <TextBlock Grid.Column="0" Grid.Row ="5" Text="Transfer block ownership on capture:" Margin="5" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="0" Grid.Row ="6" Text="Interval Tick Clock (How often plugin checks grids):" Margin="5" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="0" Grid.Row ="3" Text="Enable:" Margin="5" Grid.ColumnSpan="2"/>
+                <TextBlock Grid.Column="0" Grid.Row ="4" Text="Enable Debug:" Margin="5" Grid.ColumnSpan="2"/>
+
+
+
+                <TextBox Grid.Column="2" Grid.Row="6" Width="120" HorizontalAlignment="Left" Margin="2" Text="{Binding TickCounter}"/>
+
+
+
+                <CheckBox x:Name="Debug" Grid.Row="4" Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding DebugEnabled}"/>
+                <CheckBox x:Name="Enabled" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding PluginEnabled}"/>
+                <CheckBox x:Name="TransferOwner" Grid.Row="5" Grid.Column="2" VerticalAlignment="Center" IsChecked="{Binding TransferOwnership}"/>
+
+                
+                <TextBlock Grid.Column="0" Grid.Row ="7" Text="Active NPC Entity List:" Margin="5" Grid.ColumnSpan="2"/>
+                <GroupBox Grid.Column="2" Grid.Row="7" Header="List Control" Grid.RowSpan="8" Margin="2" IsEnabled="False">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="180"/>
+                            <ColumnDefinition Width="200"/>
+                            
+
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row ="0" Text="Entity ID:" Margin="5" Grid.ColumnSpan="2"/>
+                        <TextBox Grid.Column="1" Grid.Row="0" Width="175" HorizontalAlignment="Left" Margin="2"/>
+                        <Button Content="Add NPC Entity ID to watchlist" Margin="2" Grid.Row="0" Grid.Column="3"/>
+                        <Button Content="Remove Selected NPC Entity" Margin="2" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+
+                    </Grid>
+                </GroupBox>
+                <ListBox Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" IsEnabled="False">
+                    <ListBoxItem>
+                        Space Pirates
+                    </ListBoxItem>
+                </ListBox>
+
+            </Grid>
+
+        </ScrollViewer>
+
+    </Grid>
+</UserControl>
